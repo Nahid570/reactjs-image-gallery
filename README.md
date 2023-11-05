@@ -4,8 +4,8 @@
 
 > A Image Gallery clone created with ReactJS 
 
-<a href="">
-  <img src='' />
+<a href="https://reactjs-image-gallery.vercel.app/" target="_blank">
+  <img src='https://i.ibb.co/MD98sLK/reactjs-image-gallery.png' />
 </a>
 
 ## Task Requirements

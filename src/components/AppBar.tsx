@@ -18,6 +18,7 @@ export function AppBar({
   );
 
   const fileText = selectedCount > 1 ? "Files" : "File";
+  const deleteFileText = selectedCount > 1 ? "Files" : "File";
 
   return (
     <div className="flex justify-between items-center py-4 px-8 border-b">
@@ -36,7 +37,7 @@ export function AppBar({
 
           <div>
             <button className="text-red-500" onClick={handleDeleteFiles}>
-              Delete Files
+              Delete {deleteFileText}
             </button>
           </div>
         </React.Fragment>

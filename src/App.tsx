@@ -5,6 +5,7 @@ import Draggable from "@components/Draggable";
 import { ToastContainer } from "react-toastify";
 import { ImageUploader } from "@components/ImageUploader";
 import { restrictToParentElement } from "@dnd-kit/modifiers";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import {
   useSensor,
   useSensors,
@@ -134,12 +135,10 @@ const App = () => {
           const dragImage = prevImages[dragImageIndex];
 
           if (dragImageIndex > dropImageIndex) {
-            // dragging item er index er chaite dropzone er index choto hoile tahole ek ghore dane sore jabe reordering e
             for (let index = dragImageIndex; index > dropImageIndex; index--) {
               updateImages[index] = updateImages[index - 1];
             }
           } else if (dragImageIndex < dropImageIndex) {
-            // dragging item er index er chaite dropzone er index boro hoile tahole ek ghor bame sore jabe reordering e
             for (
               let index = dragImageIndex;
               dropImageIndex < updateImages.length && index < dropImageIndex;
@@ -203,9 +202,15 @@ const App = () => {
                   <div
                     className={`border-solid border-[.5px] border-gray-500 rounded-lg relative h-full w-full`}
                   >
-                    <img
+                    <LazyLoadImage
                       draggable={false}
                       src={activeImg.imgSrc}
+                      placeholder={
+                        <div className="h-full w-full bg-green-400 rounded-lg flex justify-center items-center">
+                          Loading...
+                        </div>
+                      }
+                      effect="opacity"
                       alt={`image-${activeImg.id}`}
                       className={"rounded-lg block bg-white h-full w-full"}
                     />

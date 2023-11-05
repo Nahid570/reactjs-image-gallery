@@ -96,7 +96,9 @@ const App = () => {
   }
 
   function handleDragStart(event: DragStartEvent) {
-    setActiveImg(event.active.data.current as AppFileType);
+    if (event.active) {
+      setActiveImg(event.active.data.current as AppFileType);
+    }
   }
 
   function handleDragCancel() {
@@ -120,13 +122,13 @@ const App = () => {
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
 
-    if (active.id !== over?.id) {
+    if (active && over && active.id !== over?.id) {
       setImages((prevImages) => {
         const dragImageIndex = prevImages.findIndex(
-          (img) => img.id === active.data.current!.id
+          (img) => img.id === active?.data?.current?.id
         );
         const dropImageIndex = prevImages.findIndex(
-          (img) => img.id === over!.data.current!.id
+          (img) => img.id === over?.data?.current?.id
         );
         const updateImages = [...prevImages];
 

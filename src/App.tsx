@@ -5,7 +5,6 @@ import Draggable from "@components/Draggable";
 import { ToastContainer } from "react-toastify";
 import { ImageUploader } from "@components/ImageUploader";
 import { restrictToParentElement } from "@dnd-kit/modifiers";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import {
   useSensor,
   useSensors,
@@ -202,15 +201,9 @@ const App = () => {
                   <div
                     className={`border-solid border-[.5px] border-gray-500 rounded-lg relative h-full w-full`}
                   >
-                    <LazyLoadImage
+                    <img
                       draggable={false}
                       src={activeImg.imgSrc}
-                      placeholder={
-                        <div className="h-full w-full bg-green-400 rounded-lg flex justify-center items-center">
-                          Loading...
-                        </div>
-                      }
-                      effect="opacity"
                       alt={`image-${activeImg.id}`}
                       className={"rounded-lg block bg-white h-full w-full"}
                     />

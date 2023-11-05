@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { CSS } from "@dnd-kit/utilities";
 import { useDraggable, useDroppable } from "@dnd-kit/core";
+import AppImage from "./AppImage";
 
 type Props = {
   image: {
@@ -74,7 +75,7 @@ function Draggable({ image, featured, handleCheckboxChange }: Props) {
               )}
             />
 
-            <img
+            <AppImage
               draggable={false}
               src={image.imgSrc}
               alt={`image-${image.id}`}
